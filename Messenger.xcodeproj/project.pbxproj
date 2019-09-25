@@ -15,6 +15,8 @@
 		53E2F05D233C037900570D57 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2F05C233C037900570D57 /* ChatsViewController.swift */; };
 		53E2F05F233C05F500570D57 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2F05E233C05F500570D57 /* Message.swift */; };
 		53E2F061233C062600570D57 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2F060233C062600570D57 /* Friend.swift */; };
+		53E2F063233C096E00570D57 /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2F062233C096E00570D57 /* FriendCollectionViewCell.swift */; };
+		53E2F065233C0A2100570D57 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2F064233C0A2100570D57 /* ChatTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		53E2F05C233C037900570D57 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		53E2F05E233C05F500570D57 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		53E2F060233C062600570D57 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		53E2F062233C096E00570D57 /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
+		53E2F064233C0A2100570D57 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				53E2F05C233C037900570D57 /* ChatsViewController.swift */,
+				53E2F062233C096E00570D57 /* FriendCollectionViewCell.swift */,
+				53E2F064233C0A2100570D57 /* ChatTableViewCell.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -176,9 +182,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53E2F063233C096E00570D57 /* FriendCollectionViewCell.swift in Sources */,
 				53E2F04423357D1500570D57 /* AppDelegate.swift in Sources */,
 				53E2F05F233C05F500570D57 /* Message.swift in Sources */,
 				53E2F061233C062600570D57 /* Friend.swift in Sources */,
+				53E2F065233C0A2100570D57 /* ChatTableViewCell.swift in Sources */,
 				53E2F05D233C037900570D57 /* ChatsViewController.swift in Sources */,
 				53E2F04C23357D1500570D57 /* Messenger.xcdatamodeld in Sources */,
 			);
