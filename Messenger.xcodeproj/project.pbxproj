@@ -12,6 +12,7 @@
 		53E2F04C23357D1500570D57 /* Messenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53E2F04A23357D1500570D57 /* Messenger.xcdatamodeld */; };
 		53E2F04E23357D1600570D57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53E2F04D23357D1600570D57 /* Assets.xcassets */; };
 		53E2F05123357D1600570D57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53E2F04F23357D1600570D57 /* LaunchScreen.storyboard */; };
+		53E2F05D233C037900570D57 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2F05C233C037900570D57 /* ChatsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		53E2F04D23357D1600570D57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53E2F05023357D1600570D57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53E2F05223357D1600570D57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53E2F05C233C037900570D57 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		53E2F05B23357D7600570D57 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				53E2F05C233C037900570D57 /* ChatsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E2F04423357D1500570D57 /* AppDelegate.swift in Sources */,
+				53E2F05D233C037900570D57 /* ChatsViewController.swift in Sources */,
 				53E2F04C23357D1500570D57 /* Messenger.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,7 +320,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8MJ3MC3A9A;
-				INFOPLIST_FILE = Messenger/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Messenger/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,7 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8MJ3MC3A9A;
-				INFOPLIST_FILE = Messenger/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Messenger/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
