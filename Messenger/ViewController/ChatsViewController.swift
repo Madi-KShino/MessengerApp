@@ -10,13 +10,17 @@ import UIKit
 
 class ChatsViewController: UIViewController {
 
+    //Properties
+    var messages: [Message]?
+    
+    
     //Outlets
     @IBOutlet weak var userIconImage: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var composeButton: UIButton!
     @IBOutlet weak var searchChatsSearchBar: UISearchBar!
     @IBOutlet weak var friendsCollectionView: UICollectionView!
-    @IBOutlet weak var chatsTableView: UITableViewCell!
+    @IBOutlet weak var chatsTableView: UITableView!
     
     
     override func viewDidLoad() {
