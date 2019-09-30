@@ -17,6 +17,8 @@
 		53E2F061233C062600570D57 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2F060233C062600570D57 /* Friend.swift */; };
 		53E2F063233C096E00570D57 /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2F062233C096E00570D57 /* FriendCollectionViewCell.swift */; };
 		53E2F065233C0A2100570D57 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2F064233C0A2100570D57 /* ChatTableViewCell.swift */; };
+		53EF580E23429F7A005D3FDE /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EF580D23429F7A005D3FDE /* CoreDataStack.swift */; };
+		53EF58112342A7C7005D3FDE /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EF58102342A7C7005D3FDE /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		53E2F060233C062600570D57 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		53E2F062233C096E00570D57 /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
 		53E2F064233C0A2100570D57 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		53EF580D23429F7A005D3FDE /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		53EF58102342A7C7005D3FDE /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +68,11 @@
 		53E2F04223357D1500570D57 /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
-				53E2F04A23357D1500570D57 /* Messenger.xcdatamodeld */,
 				53E2F04723357D1500570D57 /* Main.storyboard */,
 				53E2F05923357D6400570D57 /* Model */,
 				53E2F05A23357D6C00570D57 /* ModelController */,
 				53E2F05B23357D7600570D57 /* ViewController */,
+				53EF580F2342A7B9005D3FDE /* Helpers */,
 				53E2F05823357D4800570D57 /* Resources */,
 			);
 			path = Messenger;
@@ -88,8 +92,10 @@
 		53E2F05923357D6400570D57 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				53E2F04A23357D1500570D57 /* Messenger.xcdatamodeld */,
 				53E2F05E233C05F500570D57 /* Message.swift */,
 				53E2F060233C062600570D57 /* Friend.swift */,
+				53EF580D23429F7A005D3FDE /* CoreDataStack.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,6 +115,14 @@
 				53E2F064233C0A2100570D57 /* ChatTableViewCell.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		53EF580F2342A7B9005D3FDE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				53EF58102342A7C7005D3FDE /* DateExtension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,9 +200,11 @@
 				53E2F04423357D1500570D57 /* AppDelegate.swift in Sources */,
 				53E2F05F233C05F500570D57 /* Message.swift in Sources */,
 				53E2F061233C062600570D57 /* Friend.swift in Sources */,
+				53EF58112342A7C7005D3FDE /* DateExtension.swift in Sources */,
 				53E2F065233C0A2100570D57 /* ChatTableViewCell.swift in Sources */,
 				53E2F05D233C037900570D57 /* ChatsViewController.swift in Sources */,
 				53E2F04C23357D1500570D57 /* Messenger.xcdatamodeld in Sources */,
+				53EF580E23429F7A005D3FDE /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

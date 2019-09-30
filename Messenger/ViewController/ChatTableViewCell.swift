@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class ChatTableViewCell: UITableViewCell {
 
     //Properties
     var message: Message? {
         didSet {
-            updateView()
+            setView()
+            setData()
         }
     }
     
@@ -32,12 +34,24 @@ class ChatTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    //Setup Cell View
-    func updateView() {
-        guard let message = message else { return }
-        profilePicView.image = UIImage(named:  message.friend.profileImage)
-        nameLabel.text = "\(message.friend)"
+    //Set Cell View / Style Components
+    func setView() {
+        profilePicView.layer.cornerRadius = profilePicView.frame.height / 2
+        profilePicView.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        profilePicView.layer.borderWidth = 4
+    }
+    
+    //Setup Cell Component Data
+    func setData() {
+        guard let message = message,
+            let friend = message.friend,
+            let profileImage = message.friend?.profileImage,
+            let name = friend.name,
+            let date = message.date
+        else { return }
+        profilePicView.image = UIImage(named: profileImage)
+        nameLabel.text = "\(name)"
         messageLabel.text = message.text
-        timeLabel.text = "\(message.date)"
+        timeLabel.text = date.prettyDate()
     }
 }

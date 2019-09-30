@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import CoreData
 
-class Message: NSObject {
-    
-    var text: String
-    var date: NSDate
-    var friend: Friend
-    
-    init(text: String, date: NSDate, friend: Friend) {
+extension Message {
+    @discardableResult
+    convenience init(text: String,
+                     date: Date,
+                     friend: Friend,
+                     context: NSManagedObjectContext = CoreDataStack.managedObjectContext) {
+        self.init(context: context)
         self.text = text
         self.date = date
         self.friend = friend

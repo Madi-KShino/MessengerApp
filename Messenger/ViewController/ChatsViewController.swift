@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ChatsViewController: UIViewController {
 
@@ -49,12 +50,11 @@ class ChatsViewController: UIViewController {
     func setTestData() {
         let danny = Friend(name: "Danny", profileImage: "DANNY")
         let madi = Friend(name: "Madi K.", profileImage: "ME")
-        let message = Message(text: "Burn", date: Date() as NSDate, friend: danny)
-        let otherMessage = Message(text: "Hello World!", date: Date() as NSDate, friend: madi)
+        let message = Message(text: "BURN THEM ALL", date: Date(), friend: danny)
+        let otherMessage = Message(text: "Hello World!", date: Date(), friend: madi)
         friends = [danny, madi]
         messages = [message, otherMessage]
     }
-
 }
 
 //CollectionView Data Source
@@ -90,6 +90,9 @@ extension ChatsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
 }
 
 //SearchBar

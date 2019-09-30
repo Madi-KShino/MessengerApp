@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import CoreData
 
-class Friend: NSObject {
-    
-    var name: String
-    var profileImage: String
-    
-    init(name: String, profileImage: String) {
+extension Friend {
+    @discardableResult
+    convenience init(name: String,
+                     profileImage: String,
+                     context: NSManagedObjectContext = CoreDataStack.managedObjectContext) {
+        self.init(context: context)
         self.name = name
         self.profileImage = profileImage
     }
