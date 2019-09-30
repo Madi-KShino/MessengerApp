@@ -10,17 +10,34 @@ import UIKit
 
 class ChatTableViewCell: UITableViewCell {
 
-    var message: Message?
+    //Properties
+    var message: Message? {
+        didSet {
+            updateView()
+        }
+    }
     
+    //Outlets
+    @IBOutlet weak var profilePicView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    //Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-
+    
+    //Setup Cell View
+    func updateView() {
+        guard let message = message else { return }
+        profilePicView.image = UIImage(named:  message.friend.profileImage)
+        nameLabel.text = "\(message.friend)"
+        messageLabel.text = message.text
+        timeLabel.text = "\(message.date)"
+    }
 }

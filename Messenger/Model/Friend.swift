@@ -10,6 +10,11 @@ import Foundation
 
 class Friend: NSObject {
     
-    var name: String?
-    var profileImage: String?
+    var name: String
+    var profileImage: String
+    
+    init(name: String, profileImage: String) {
+        self.name = name
+        self.profileImage = profileImage
+    }
 }

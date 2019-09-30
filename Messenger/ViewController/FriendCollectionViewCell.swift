@@ -10,6 +10,27 @@ import UIKit
 
 class FriendCollectionViewCell: UICollectionViewCell {
     
-    var friend: Friend?
+    //Properties
+    var friend: Friend? {
+        didSet {
+            setView()
+            setData()
+        }
+    }
     
+    //Outlets
+    @IBOutlet weak var profilePicView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    //Set Cell Components
+    func setView() {
+        profilePicView.layer.cornerRadius = profilePicView.frame.height / 2
+    }
+    
+    //Set Cell Data
+    func setData() {
+        guard let friend = friend else { return }
+        profilePicView.image = UIImage(named: friend.profileImage)
+        nameLabel.text = friend.name
+    }
 }

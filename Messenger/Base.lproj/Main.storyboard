@@ -70,7 +70,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="friendCell" id="dKV-HC-f0C">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="friendCell" id="dKV-HC-f0C" customClass="FriendCollectionViewCell" customModule="Messenger" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="1" width="98" height="115"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -97,6 +97,10 @@
                                                     <constraint firstItem="v2H-kG-1MI" firstAttribute="height" secondItem="dKV-HC-f0C" secondAttribute="height" multiplier="0.7" id="cML-UX-Wj7"/>
                                                     <constraint firstItem="v2H-kG-1MI" firstAttribute="centerX" secondItem="dKV-HC-f0C" secondAttribute="centerX" id="q1z-Rs-CfS"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="nameLabel" destination="VLP-Mj-XNf" id="FZc-n6-o1j"/>
+                                                    <outlet property="profilePicView" destination="v2H-kG-1MI" id="m4Q-Fy-YOm"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
@@ -104,10 +108,10 @@
                                         <rect key="frame" x="0.0" y="229.5" width="384" height="538.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="95" id="IZx-Mb-czh">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="95" id="IZx-Mb-czh" customClass="ChatTableViewCell" customModule="Messenger" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="384" height="95"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IZx-Mb-czh" id="aX0-Z8-wg2">
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IZx-Mb-czh" id="aX0-Z8-wg2" customClass="ChatTableViewCell" customModule="Messenger" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="384" height="94.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
@@ -143,6 +147,12 @@
                                                         <constraint firstItem="25e-Z6-eDj" firstAttribute="width" secondItem="aX0-Z8-wg2" secondAttribute="height" multiplier="1:1" id="fYD-Zt-SFI"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="messageLabel" destination="A70-hV-vJO" id="u5w-18-vaB"/>
+                                                    <outlet property="nameLabel" destination="gPv-Aj-E94" id="iDn-0k-zjn"/>
+                                                    <outlet property="profilePicView" destination="25e-Z6-eDj" id="Tey-2j-Uc8"/>
+                                                    <outlet property="timeLabel" destination="xTD-Yw-ndb" id="nmc-PN-V6X"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>

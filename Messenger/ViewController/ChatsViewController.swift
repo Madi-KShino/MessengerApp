@@ -27,6 +27,7 @@ class ChatsViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setDelegates()
+        setTestData()
     }
     
     //Set Up - Initial View for Components
@@ -42,6 +43,16 @@ class ChatsViewController: UIViewController {
         friendsCollectionView.dataSource = self
         chatsTableView.delegate = self
         chatsTableView.dataSource = self
+    }
+    
+    //Set Up Test Data
+    func setTestData() {
+        let danny = Friend(name: "Danny", profileImage: "DANNY")
+        let madi = Friend(name: "Madi K.", profileImage: "ME")
+        let message = Message(text: "Burn", date: Date() as NSDate, friend: danny)
+        let otherMessage = Message(text: "Hello World!", date: Date() as NSDate, friend: madi)
+        friends = [danny, madi]
+        messages = [message, otherMessage]
     }
 
 }

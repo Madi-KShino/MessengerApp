@@ -10,7 +10,13 @@ import Foundation
 
 class Message: NSObject {
     
-    var text: String?
-    var date: NSDate?
-    var friend: Friend?
+    var text: String
+    var date: NSDate
+    var friend: Friend
+    
+    init(text: String, date: NSDate, friend: Friend) {
+        self.text = text
+        self.date = date
+        self.friend = friend
+    }
 }
