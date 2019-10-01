@@ -19,6 +19,8 @@
 		53E2F065233C0A2100570D57 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2F064233C0A2100570D57 /* ChatTableViewCell.swift */; };
 		53EF580E23429F7A005D3FDE /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EF580D23429F7A005D3FDE /* CoreDataStack.swift */; };
 		53EF58112342A7C7005D3FDE /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EF58102342A7C7005D3FDE /* DateExtension.swift */; };
+		53FF46E62343BFAD009C4A4A /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF46E52343BFAD009C4A4A /* MessageController.swift */; };
+		53FF46E82343C0FA009C4A4A /* FriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF46E72343C0FA009C4A4A /* FriendController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		53E2F064233C0A2100570D57 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		53EF580D23429F7A005D3FDE /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		53EF58102342A7C7005D3FDE /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		53FF46E52343BFAD009C4A4A /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
+		53FF46E72343C0FA009C4A4A /* FriendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 		53E2F05A23357D6C00570D57 /* ModelController */ = {
 			isa = PBXGroup;
 			children = (
+				53FF46E52343BFAD009C4A4A /* MessageController.swift */,
+				53FF46E72343C0FA009C4A4A /* FriendController.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -203,6 +209,8 @@
 				53EF58112342A7C7005D3FDE /* DateExtension.swift in Sources */,
 				53E2F065233C0A2100570D57 /* ChatTableViewCell.swift in Sources */,
 				53E2F05D233C037900570D57 /* ChatsViewController.swift in Sources */,
+				53FF46E62343BFAD009C4A4A /* MessageController.swift in Sources */,
+				53FF46E82343C0FA009C4A4A /* FriendController.swift in Sources */,
 				53E2F04C23357D1500570D57 /* Messenger.xcdatamodeld in Sources */,
 				53EF580E23429F7A005D3FDE /* CoreDataStack.swift in Sources */,
 			);
