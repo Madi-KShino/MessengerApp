@@ -89,10 +89,6 @@ extension ChatsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
-    }
 }
 
 //SearchBar

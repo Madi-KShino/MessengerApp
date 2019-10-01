@@ -36,9 +36,7 @@ class ChatTableViewCell: UITableViewCell {
     
     //Set Cell View / Style Components
     func setView() {
-        profilePicView.layer.cornerRadius = profilePicView.frame.height / 2
-        profilePicView.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        profilePicView.layer.borderWidth = 4
+        profilePicView.layer.cornerRadius = profilePicView.frame.width / 2
     }
     
     //Setup Cell Component Data
