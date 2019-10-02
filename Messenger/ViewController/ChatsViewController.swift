@@ -29,6 +29,7 @@ class ChatsViewController: UIViewController {
         setupView()
         setDelegates()
         setTestData()
+        fetchSavedData()
     }
     
     //Set Up - Initial View for Components
@@ -54,6 +55,11 @@ class ChatsViewController: UIViewController {
         let otherMessage = Message(text: "Hello World!", date: Date(), friend: madi)
         friends = [danny, madi]
         messages = [message, otherMessage]
+    }
+    
+    //Fetch Saved Friends/Messages
+    func fetchSavedData() {
+        //
     }
 }
 
