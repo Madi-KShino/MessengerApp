@@ -15,10 +15,7 @@ class FriendController {
     static let sharedInstance = FriendController()
     
     //Source of Truth
-    var friends: [Friend] {
-        let request: NSFetchRequest<Friend> = Friend.fetchRequest()
-        return (try? CoreDataStack.managedObjectContext.fetch(request)) ?? []
-    }
+    var friends: [Friend] = []
     
     //Create/Save new Friend
     func addFriend(name: String, profileImage: String) {
@@ -32,6 +29,36 @@ class FriendController {
             moc.delete(friend)
             saveToPersistentStore()
         }
+    }
+    
+    //Fetch Friends from Persistent Store
+    func fetchFriends() -> [Friend]? {
+        var friends: [Friend] = []
+        let request: NSFetchRequest<Friend> = Friend.fetchRequest()
+             friends = (try? CoreDataStack.managedObjectContext.fetch(request)) ?? []
+        self.friends = friends
+        return friends
+    }
+    
+    //Fetch Messages for friends and sort by date
+    func fetchMessages() -> [Message]? {
+        var messages: [Message] = []
+        if let friends = fetchFriends() {
+            for friend in friends {
+                print(friend.name!)
+                let request: NSFetchRequest<Message> = Message.fetchRequest()
+                request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+                request.predicate = NSPredicate(format: "friend.name = %@", friend.name!)
+                request.fetchLimit = 1
+                do {
+                    messages = try(CoreDataStack.managedObjectContext.fetch(request))
+                } catch {
+                    print("Error Fetching Messages")
+                    return nil
+                }
+            }
+        }
+        return messages
     }
     
     //Base Save Function

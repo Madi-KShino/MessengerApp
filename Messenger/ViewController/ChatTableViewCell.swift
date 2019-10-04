@@ -47,9 +47,25 @@ class ChatTableViewCell: UITableViewCell {
             let name = friend.name,
             let date = message.date
         else { return }
+        let formattedDate = setDateText(date: date)
         profilePicView.image = UIImage(named: profileImage)
         nameLabel.text = "\(name)"
         messageLabel.text = message.text
-        timeLabel.text = date.prettyDate()
+        timeLabel.text = formattedDate
+    }
+    
+    //Format Date based of time since message was recieved
+    func setDateText(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        let timeSinceRecieved = NSDate().timeIntervalSince(date)
+        let secondsInDay: TimeInterval = 60 * 60 * 24
+        if timeSinceRecieved > 7 * secondsInDay {
+            dateFormatter.dateFormat = "MM/dd/yy"
+        } else if timeSinceRecieved
+         > secondsInDay {
+            dateFormatter.dateFormat = "EEE"
+        }
+        return dateFormatter.string(from: date)
     }
 }

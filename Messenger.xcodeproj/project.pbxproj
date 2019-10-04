@@ -21,6 +21,8 @@
 		53EF58112342A7C7005D3FDE /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EF58102342A7C7005D3FDE /* DateExtension.swift */; };
 		53FF46E62343BFAD009C4A4A /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF46E52343BFAD009C4A4A /* MessageController.swift */; };
 		53FF46E82343C0FA009C4A4A /* FriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF46E72343C0FA009C4A4A /* FriendController.swift */; };
+		53FF46EC2346B5BD009C4A4A /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF46EB2346B5BD009C4A4A /* ChatLogViewController.swift */; };
+		53FF46EE2346F501009C4A4A /* ChatLogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF46ED2346F501009C4A4A /* ChatLogCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		53EF58102342A7C7005D3FDE /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		53FF46E52343BFAD009C4A4A /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
 		53FF46E72343C0FA009C4A4A /* FriendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendController.swift; sourceTree = "<group>"; };
+		53FF46EB2346B5BD009C4A4A /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
+		53FF46ED2346F501009C4A4A /* ChatLogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 				53E2F05C233C037900570D57 /* ChatsViewController.swift */,
 				53E2F062233C096E00570D57 /* FriendCollectionViewCell.swift */,
 				53E2F064233C0A2100570D57 /* ChatTableViewCell.swift */,
+				53FF46EB2346B5BD009C4A4A /* ChatLogViewController.swift */,
+				53FF46ED2346F501009C4A4A /* ChatLogCollectionViewCell.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -203,8 +209,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E2F063233C096E00570D57 /* FriendCollectionViewCell.swift in Sources */,
+				53FF46EE2346F501009C4A4A /* ChatLogCollectionViewCell.swift in Sources */,
 				53E2F04423357D1500570D57 /* AppDelegate.swift in Sources */,
 				53E2F05F233C05F500570D57 /* Message.swift in Sources */,
+				53FF46EC2346B5BD009C4A4A /* ChatLogViewController.swift in Sources */,
 				53E2F061233C062600570D57 /* Friend.swift in Sources */,
 				53EF58112342A7C7005D3FDE /* DateExtension.swift in Sources */,
 				53E2F065233C0A2100570D57 /* ChatTableViewCell.swift in Sources */,

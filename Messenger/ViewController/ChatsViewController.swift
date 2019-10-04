@@ -28,8 +28,8 @@ class ChatsViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setDelegates()
+        setData()
         setTestData()
-        fetchSavedData()
     }
     
     //Set Up - Initial View for Components
@@ -53,13 +53,29 @@ class ChatsViewController: UIViewController {
         let madi = Friend(name: "Madi K.", profileImage: "ME")
         let message = Message(text: "BURN THEM ALL", date: Date(), friend: danny)
         let otherMessage = Message(text: "Hello World!", date: Date(), friend: madi)
-        friends = [danny, madi]
-        messages = [message, otherMessage]
+        let message2 = Message(text: "Aghghghg", date: Date(), friend: madi)
+        friends?.append(madi)
+        friends?.append(danny)
+        messages = [message, otherMessage, message2]
     }
     
-    //Fetch Saved Friends/Messages
-    func fetchSavedData() {
-        //
+    //Get fetched friend and message data, sort messages by newest
+    func setData() {
+        friends = FriendController.sharedInstance.friends
+        if let messages = FriendController.sharedInstance.fetchMessages() {
+            let sortedMessages = messages.sorted(by: {$0.date!.compare($1.date!) == .orderedDescending})
+            self.messages?.append(contentsOf: sortedMessages)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMessageViewForSelectedFriemd" {
+            guard let indexPath = chatsTableView.indexPathForSelectedRow,
+            let messages = messages else { return }
+            let destination = segue.destination as? ChatLogViewController
+            let friend = messages[indexPath.row].friend
+            destination?.friend = friend
+        }
     }
 }
 
