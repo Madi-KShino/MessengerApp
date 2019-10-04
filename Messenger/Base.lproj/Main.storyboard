@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -172,8 +171,8 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4fx-8O-bgP">
                                                                     <rect key="frame" x="90" y="0.0" width="284" height="80"/>
                                                                     <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="0n2-Bc-InD">
-                                                                            <rect key="frame" x="0.0" y="10" width="157" height="70"/>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="200" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="0n2-Bc-InD">
+                                                                            <rect key="frame" x="0.0" y="10" width="194" height="70"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vef-YV-1Gb">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="49.5" height="35"/>
@@ -189,8 +188,11 @@
                                                                                 </label>
                                                                             </subviews>
                                                                         </stackView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPM-Me-UxG">
-                                                                            <rect key="frame" x="162" y="10" width="122" height="70"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="300" verticalHuggingPriority="251" text="00/00/00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPM-Me-UxG">
+                                                                            <rect key="frame" x="199" y="10" width="85" height="70"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="85" id="W52-1T-iya"/>
+                                                                            </constraints>
                                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -274,29 +276,12 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="messageCell" id="Q0Q-g3-s99" customClass="ChatLogCollectionViewCell" customModule="Messenger" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="134"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="f3P-7T-uw4">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="134"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTk-0q-C6x">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="134"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="JTk-0q-C6x" secondAttribute="bottom" id="Gcz-9G-MGu"/>
-                                                <constraint firstItem="JTk-0q-C6x" firstAttribute="top" secondItem="f3P-7T-uw4" secondAttribute="top" id="QvY-8j-KLm"/>
-                                                <constraint firstAttribute="trailing" secondItem="JTk-0q-C6x" secondAttribute="trailing" id="VTk-Vb-wYl"/>
-                                                <constraint firstItem="JTk-0q-C6x" firstAttribute="leading" secondItem="f3P-7T-uw4" secondAttribute="leading" id="fNN-6y-XQx"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="414" height="134"/>
-                                        <connections>
-                                            <outlet property="textLabel" destination="JTk-0q-C6x" id="AH8-jT-S0q"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

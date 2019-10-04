@@ -13,23 +13,23 @@ class ChatLogCollectionViewCell: UICollectionViewCell {
     //Properties
     var message: Message? {
         didSet {
-            setCellData()
-            setViewComponents()
-        }
+            setViews()        }
     }
     
-    //Outlets
-    @IBOutlet weak var textLabel: UILabel!
+    let messageTextView: UITextView = {
+        let textView = UITextView()
+        textView.font = UIFont.systemFont(ofSize: 18)
+        textView.text = "TESTING TESTING TESTING TESTING TESTING TESTING"
+        textView.textColor = UIColor.white
+        textView.backgroundColor = UIColor.clear
+        return textView
+    }()
     
-    func setViewComponents() {
-        textLabel.backgroundColor = UIColor.clear
-        textLabel.textColor = .white
-        self.backgroundColor = UIColor.gray
-    }
-    
-    func setCellData() {
+    func setViews() {
+        backgroundColor = UIColor.lightGray
+        addSubview(messageTextView)
         if let message = message {
-            textLabel.text = message.text
+            messageTextView.text = message.text
         }
     }
 }

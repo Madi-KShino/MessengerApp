@@ -21,6 +21,7 @@ class ChatLogViewController: UIViewController {
             }
         }
     }
+     let cell = ChatLogCollectionViewCell()
     
     //Outlets
     @IBOutlet weak var nameLabel: UILabel!
@@ -47,6 +48,7 @@ class ChatLogViewController: UIViewController {
     }
 }
 
+//Collection View Data Source
 extension ChatLogViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -60,25 +62,16 @@ extension ChatLogViewController: UICollectionViewDelegate, UICollectionViewDataS
         guard let messages = messages,
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as? ChatLogCollectionViewCell else { return UICollectionViewCell() }
         cell.message = messages[indexPath.row]
-        
-        if let messageText = messages[indexPath.row].text {
-            let size: CGSize = CGSize(width: 250, height: 1000)
-            let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-            let estimatedFrame = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont(name: "Arial", size: 18)!], context: nil)
-            cell.frame = CGRect(x: 0, y: 0, width: 250, height: estimatedFrame.height + 20)
-        }
-        
+//        cell.messageTextView.text = messages[indexPath.row].text
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-           layout collectionViewLayout: UICollectionViewLayout,
-           sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+   
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if let messageText = messages?[indexPath.row].text {
             let size: CGSize = CGSize(width: 250, height: 1000)
             let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-            let estimatedFrame = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont(name: "Arial", size: 18)!], context: nil)
+            let estimatedFrame = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)], context: nil)
             return CGSize(width: view.frame.width, height: estimatedFrame.height + 20)
         }
         return CGSize(width: view.frame.width, height: 100)
