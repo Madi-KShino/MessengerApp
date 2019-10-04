@@ -52,7 +52,7 @@ class ChatsViewController: UIViewController {
         let danny = Friend(name: "Danny", profileImage: "DANNY")
         let madi = Friend(name: "Madi K.", profileImage: "ME")
         let message = Message(text: "BURN THEM ALL", date: Date(), friend: danny)
-        let otherMessage = Message(text: "Hello World!", date: Date(), friend: madi)
+        let otherMessage = Message(text: "Hello World! This is a test! I sure hope it works! Oh no. Why won't it work. Work. Fucking work.", date: Date(), friend: madi)
         let message2 = Message(text: "Aghghghg", date: Date(), friend: madi)
         friends?.append(madi)
         friends?.append(danny)

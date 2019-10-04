@@ -57,13 +57,30 @@ extension ChatLogViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as? ChatLogCollectionViewCell else { return UICollectionViewCell() }
+        guard let messages = messages,
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as? ChatLogCollectionViewCell else { return UICollectionViewCell() }
+        cell.message = messages[indexPath.row]
+        
+        if let messageText = messages[indexPath.row].text {
+            let size: CGSize = CGSize(width: 250, height: 1000)
+            let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+            let estimatedFrame = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont(name: "Arial", size: 18)!], context: nil)
+            cell.frame = CGRect(x: 0, y: 0, width: 250, height: estimatedFrame.height + 20)
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView,
            layout collectionViewLayout: UICollectionViewLayout,
            sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if let messageText = messages?[indexPath.row].text {
+            let size: CGSize = CGSize(width: 250, height: 1000)
+            let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+            let estimatedFrame = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont(name: "Arial", size: 18)!], context: nil)
+            return CGSize(width: view.frame.width, height: estimatedFrame.height + 20)
+        }
         return CGSize(width: view.frame.width, height: 100)
     }
 
