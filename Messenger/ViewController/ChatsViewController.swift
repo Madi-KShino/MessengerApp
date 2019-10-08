@@ -51,8 +51,8 @@ class ChatsViewController: UIViewController {
         clearTestData()
         let danny = Friend(name: "Danny", profileImage: "DANNY")
         let madi = Friend(name: "Madi K.", profileImage: "ME")
-        FriendController.sharedInstance.addFriend(name: "Danny", profileImage: "DANNY")
-        FriendController.sharedInstance.addFriend(name: "Madi K.", profileImage: "ME")
+//        FriendController.sharedInstance.addFriend(name: "Danny", profileImage: "DANNY")
+//        FriendController.sharedInstance.addFriend(name: "Madi K.", profileImage: "ME")
         MessageController.sharedInstance.createMessageWith(text: "BURN THEM ALL", date: Date(), isSender: false, friend: danny)
         MessageController.sharedInstance.createMessageWith(text: "Hello World! This is a test! I sure hope it works! Oh no. Why won't it work. Work. Please work.", date: Date(), isSender: false, friend: madi)
         MessageController.sharedInstance.createMessageWith(text: "Aghghghg", date: Date(), isSender: false, friend: madi)
@@ -68,21 +68,20 @@ class ChatsViewController: UIViewController {
     
     //Get fetched friend and message data, sort messages by newest
     func setData() {
-        if let friends = FriendController.sharedInstance.fetchFriends() {
-            for friend in friends {
-                let messages: [Message] = friend.messages
-                let sortedMessages = messages?.sorted(by: {($0 as AnyObject).date!.compare(($1 as AnyObject).date!) == .orderedDescending})
-                self.messages?.append(sortedMessages)
-            }
+        let friends = FriendController.sharedInstance.friends
+        for friend in friends {
+            guard let messages = friend.messages else { return }
+            let messagesArray = Array(messages)
+            let sortedMessages = messagesArray.sorted(by: {($0 as AnyObject).date!.compare(($1 as AnyObject).date!) == .orderedDescending})
+            self.messages = sortedMessages as? [Message]
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toMessageViewForSelectedFriemd" {
-            guard let indexPath = chatsTableView.indexPathForSelectedRow,
-            let messages = messages else { return }
+            guard let indexPath = chatsTableView.indexPathForSelectedRow else { return }
+            let friend = FriendController.sharedInstance.friends[indexPath.row]
             let destination = segue.destination as? ChatLogViewController
-            let friend = messages[indexPath.row].friend
             destination?.friend = friend
         }
     }
@@ -107,14 +106,16 @@ extension ChatsViewController: UICollectionViewDelegate, UICollectionViewDataSou
 //TableView Data Source
 extension ChatsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let messages = messages else { return 0 }
-        return messages.count
+        let friends = FriendController.sharedInstance.friends
+        return friends.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as? ChatTableViewCell else { return UITableViewCell() }
-        if let message = messages?[indexPath.row] {
-            cell.message = message
+        let friend = FriendController.sharedInstance.friends[indexPath.row]
+        if let messages = friend.messages {
+            let messagesArray = Array<Any>(messages)
+            cell.message = messagesArray.last as? Message
         }
         return cell
     }
