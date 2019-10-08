@@ -10,7 +10,7 @@ import UIKit
 
 class ChatLogCollectionViewCell: UICollectionViewCell {
     
-    //Properties
+    //Cell Properties
     var message: Message? {
         didSet {
             addSubview(textBubbleView)

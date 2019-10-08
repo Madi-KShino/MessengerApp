@@ -13,11 +13,13 @@ extension Message {
     @discardableResult
     convenience init(text: String,
                      date: Date,
+                     isSender: Bool,
                      friend: Friend,
                      context: NSManagedObjectContext = CoreDataStack.managedObjectContext) {
         self.init(context: context)
         self.text = text
         self.date = date
+        self.isSender = isSender
         self.friend = friend
     }
 }

@@ -51,12 +51,13 @@ class ChatsViewController: UIViewController {
     func setTestData() {
         let danny = Friend(name: "Danny", profileImage: "DANNY")
         let madi = Friend(name: "Madi K.", profileImage: "ME")
-        let message = Message(text: "BURN THEM ALL", date: Date(), friend: danny)
-        let otherMessage = Message(text: "Hello World! This is a test! I sure hope it works! Oh no. Why won't it work. Work. Fucking work.", date: Date(), friend: madi)
-        let message2 = Message(text: "Aghghghg", date: Date(), friend: madi)
+        let message = Message(text: "BURN THEM ALL", date: Date(), isSender: false, friend: danny)
+        let otherMessage = Message(text: "Hello World! This is a test! I sure hope it works! Oh no. Why won't it work. Work. Fucking work.", date: Date(), isSender: false, friend: madi)
+        let message2 = Message(text: "Aghghghg", date: Date(), isSender: false, friend: madi)
+        let message3 = Message(text: "Fine...", date: Date(), isSender: true, friend: madi)
         friends?.append(madi)
         friends?.append(danny)
-        messages = [message, otherMessage, message2]
+        messages = [message, otherMessage, message2, message3]
     }
     
     //Get fetched friend and message data, sort messages by newest

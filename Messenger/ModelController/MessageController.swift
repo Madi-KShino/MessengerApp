@@ -15,8 +15,8 @@ class MessageController {
     static let sharedInstance = MessageController()
     
     //Create/Save a new message
-    func createMessageWith(text: String, date: Date, friend: Friend) {
-        Message(text: text, date: date, friend: friend)
+    func createMessageWith(text: String, date: Date, isSender: Bool, friend: Friend) {
+        Message(text: text, date: date, isSender: isSender, friend: friend)
         FriendController.sharedInstance.saveToPersistentStore()
     }
     

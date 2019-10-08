@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G87" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G87" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Friend" representedClassName="Friend" syncable="YES" codeGenerationType="class">
-        <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="profileImage" attributeType="String" syncable="YES"/>
-        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="friend" inverseEntity="Message" syncable="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="profileImage" attributeType="String"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="friend" inverseEntity="Message"/>
     </entity>
     <entity name="Message" representedClassName="Message" syncable="YES" codeGenerationType="class">
-        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="text" attributeType="String" syncable="YES"/>
-        <relationship name="friend" maxCount="1" deletionRule="Nullify" destinationEntity="Friend" inverseName="messages" inverseEntity="Friend" syncable="YES"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isSender" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="text" attributeType="String"/>
+        <relationship name="friend" maxCount="1" deletionRule="Nullify" destinationEntity="Friend" inverseName="messages" inverseEntity="Friend"/>
     </entity>
     <elements>
         <element name="Friend" positionX="-292.78515625" positionY="-257.3203125" width="128" height="88"/>
-        <element name="Message" positionX="-54" positionY="-9" width="128" height="88"/>
+        <element name="Message" positionX="-54" positionY="-9" width="128" height="103"/>
     </elements>
 </model>
