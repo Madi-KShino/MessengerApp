@@ -85,8 +85,6 @@ extension ChatLogViewController: UICollectionViewDelegate, UICollectionViewDataS
                 cell.messageTextView.textColor = .white
             }
         }
-        
-        
         return cell
     }
 

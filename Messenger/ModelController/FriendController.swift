@@ -15,7 +15,11 @@ class FriendController {
     static let sharedInstance = FriendController()
     
     //Source of Truth
-    var friends: [Friend] = []
+    var friends: [Friend] {
+        let request: NSFetchRequest<Friend> = Friend.fetchRequest()
+        return (try? CoreDataStack.managedObjectContext.fetch(request))
+        ?? []
+    }
     
     //Create/Save new Friend
     func addFriend(name: String, profileImage: String) {
@@ -36,7 +40,6 @@ class FriendController {
         var friends: [Friend] = []
         let request: NSFetchRequest<Friend> = Friend.fetchRequest()
              friends = (try? CoreDataStack.managedObjectContext.fetch(request)) ?? []
-        self.friends = friends
         return friends
     }
     
@@ -52,6 +55,7 @@ class FriendController {
                 request.fetchLimit = 1
                 do {
                     messages = try(CoreDataStack.managedObjectContext.fetch(request))
+                    print(messages)
                 } catch {
                     print("Error Fetching Messages")
                     return nil

@@ -13,7 +13,6 @@ class ChatsViewController: UIViewController {
 
     //Properties
     var messages: [Message]?
-    var friends: [Friend]?
     
     //Outlets
     @IBOutlet weak var userIconImage: UIImageView!
@@ -28,8 +27,8 @@ class ChatsViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setDelegates()
-        setData()
         setTestData()
+        setData()
     }
     
     //Set Up - Initial View for Components
@@ -49,23 +48,32 @@ class ChatsViewController: UIViewController {
     
     //Set Up Test Data
     func setTestData() {
+        clearTestData()
         let danny = Friend(name: "Danny", profileImage: "DANNY")
         let madi = Friend(name: "Madi K.", profileImage: "ME")
-        let message = Message(text: "BURN THEM ALL", date: Date(), isSender: false, friend: danny)
-        let otherMessage = Message(text: "Hello World! This is a test! I sure hope it works! Oh no. Why won't it work. Work. Fucking work.", date: Date(), isSender: false, friend: madi)
-        let message2 = Message(text: "Aghghghg", date: Date(), isSender: false, friend: madi)
-        let message3 = Message(text: "Fine...", date: Date(), isSender: true, friend: madi)
-        friends?.append(madi)
-        friends?.append(danny)
-        messages = [message, otherMessage, message2, message3]
+        FriendController.sharedInstance.addFriend(name: "Danny", profileImage: "DANNY")
+        FriendController.sharedInstance.addFriend(name: "Madi K.", profileImage: "ME")
+        MessageController.sharedInstance.createMessageWith(text: "BURN THEM ALL", date: Date(), isSender: false, friend: danny)
+        MessageController.sharedInstance.createMessageWith(text: "Hello World! This is a test! I sure hope it works! Oh no. Why won't it work. Work. Please work.", date: Date(), isSender: false, friend: madi)
+        MessageController.sharedInstance.createMessageWith(text: "Aghghghg", date: Date(), isSender: false, friend: madi)
+        MessageController.sharedInstance.createMessageWith(text: "Fine...", date: Date(), isSender: true, friend: madi)
+    }
+    
+    //Delete previously saved test data
+    func clearTestData() {
+        for friend in FriendController.sharedInstance.friends {
+            FriendController.sharedInstance.deleteFriend(friend: friend)
+        }
     }
     
     //Get fetched friend and message data, sort messages by newest
     func setData() {
-        friends = FriendController.sharedInstance.friends
-        if let messages = FriendController.sharedInstance.fetchMessages() {
-            let sortedMessages = messages.sorted(by: {$0.date!.compare($1.date!) == .orderedDescending})
-            self.messages?.append(contentsOf: sortedMessages)
+        if let friends = FriendController.sharedInstance.fetchFriends() {
+            for friend in friends {
+                let messages: [Message] = friend.messages
+                let sortedMessages = messages?.sorted(by: {($0 as AnyObject).date!.compare(($1 as AnyObject).date!) == .orderedDescending})
+                self.messages?.append(sortedMessages)
+            }
         }
     }
     
@@ -84,18 +92,16 @@ class ChatsViewController: UIViewController {
 extension ChatsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let friends = friends else { return 0 }
+        let friends = FriendController.sharedInstance.friends
         return friends.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendCell", for: indexPath) as? FriendCollectionViewCell else { return UICollectionViewCell() }
-        if let friend = friends?[indexPath.item] {
-            cell.friend = friend
-        }
+        let friend = FriendController.sharedInstance.friends[indexPath.item]
+        cell.friend = friend
         return cell
     }
-    
 }
 
 //TableView Data Source
