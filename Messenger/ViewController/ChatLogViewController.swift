@@ -60,20 +60,22 @@ extension ChatLogViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let messages = messages,
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as? ChatLogCollectionViewCell else { return UICollectionViewCell() }
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as? ChatLogCollectionViewCell ,
+            let profileImage = messages[indexPath.row].friend?.profileImage
+        else { return UICollectionViewCell() }
         if let messageText = messages[indexPath.row].text {
             let size: CGSize = CGSize(width: 250, height: 1000)
             let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
             let estimatedFrame = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)], context: nil)
-            cell.messageTextView.frame = CGRect(x: 0, y: 0, width: 250 + 15, height: estimatedFrame.height + 20)
+            cell.messageTextView.frame = CGRect(x: 50, y: 0, width: estimatedFrame.width + 15, height: estimatedFrame.height + 20)
+            cell.textBubbleView.frame = CGRect(x: 50, y: 0, width: estimatedFrame.width + 15 + 10, height: estimatedFrame.height + 20)
         }
         cell.message = messages[indexPath.row]
         cell.messageTextView.text = messages[indexPath.row].text
-        
+        cell.profileImageView.image = UIImage(named: profileImage)
         return cell
     }
     
-   
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if let messageText = messages?[indexPath.row].text {
             let size: CGSize = CGSize(width: 250, height: 1000)

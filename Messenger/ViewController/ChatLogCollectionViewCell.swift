@@ -13,23 +13,37 @@ class ChatLogCollectionViewCell: UICollectionViewCell {
     //Properties
     var message: Message? {
         didSet {
-            setViews()        }
+            addSubview(textBubbleView)
+            addSubview(messageTextView)
+            addSubview(profileImageView)
+            addConstraints(format: "H:|-5-[v0(30)]", views: profileImageView)
+            addConstraints(format: "V:|[v0(30)]", views: profileImageView)
+            
+        }
     }
     
     let messageTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 18)
         textView.text = "TESTING TESTING TESTING TESTING TESTING TESTING"
-        textView.textColor = UIColor.white
         textView.backgroundColor = UIColor.clear
         return textView
     }()
     
-    func setViews() {
-        backgroundColor = UIColor.lightGray
-        addSubview(messageTextView)
-        if let message = message {
-            messageTextView.text = message.text
-        }
-    }
+    let textBubbleView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        view.layer.cornerRadius = 15
+        view.layer.masksToBounds = true
+        return view
+    }()
+    
+    let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 15
+        imageView.layer.masksToBounds = true
+        return imageView
+    }()
+
 }

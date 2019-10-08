@@ -23,6 +23,7 @@
 		53FF46E82343C0FA009C4A4A /* FriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF46E72343C0FA009C4A4A /* FriendController.swift */; };
 		53FF46EC2346B5BD009C4A4A /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF46EB2346B5BD009C4A4A /* ChatLogViewController.swift */; };
 		53FF46EE2346F501009C4A4A /* ChatLogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF46ED2346F501009C4A4A /* ChatLogCollectionViewCell.swift */; };
+		53FF46F0234C5368009C4A4A /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF46EF234C5368009C4A4A /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		53FF46E72343C0FA009C4A4A /* FriendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendController.swift; sourceTree = "<group>"; };
 		53FF46EB2346B5BD009C4A4A /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
 		53FF46ED2346F501009C4A4A /* ChatLogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogCollectionViewCell.swift; sourceTree = "<group>"; };
+		53FF46EF234C5368009C4A4A /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				53EF58102342A7C7005D3FDE /* DateExtension.swift */,
+				53FF46EF234C5368009C4A4A /* UIViewExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				53FF46EE2346F501009C4A4A /* ChatLogCollectionViewCell.swift in Sources */,
 				53E2F04423357D1500570D57 /* AppDelegate.swift in Sources */,
 				53E2F05F233C05F500570D57 /* Message.swift in Sources */,
+				53FF46F0234C5368009C4A4A /* UIViewExtension.swift in Sources */,
 				53FF46EC2346B5BD009C4A4A /* ChatLogViewController.swift in Sources */,
 				53E2F061233C062600570D57 /* Friend.swift in Sources */,
 				53EF58112342A7C7005D3FDE /* DateExtension.swift in Sources */,
